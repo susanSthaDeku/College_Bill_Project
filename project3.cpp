@@ -2,43 +2,49 @@
 #include<string.h>
 #include<ctime>
 using namespace std;
+// Class to create Commit
 class Calc_Ebill
 {
 int cus_Id;
 char cus_Name[50];
 int units;
 double bill_Bal;
- int bal;
+ int bal,tax;
 public:
+// Gives user total balance
     int balance()
     {
         cout<<"Enter the Total balance :"<<endl;
         cin>>bal;
         return(bal);
     }
+
+    // Takes customer info
     void get()
     {
         cout << "Please enter detail of customer below: \n" << endl;
         cout << "Enter customer id: " << endl;
         cin>>cus_Id;
-        cout << "Enter customer Name: " << endlasdfsdmfnlkjsda flush kosdjf
-        asdf
-         sdkfl; sdakfl;sdakf;
+        cout << "Enter customer Name: " << endl;
         cin>>cus_Name;
     }
-    void put()
+// Displays customer bill amount
+     void put()
     {
-        cout << "\n            Customer Details          \n" << endl;
-        cout << "\nCustomer id : " <<cus_Id<<endl;
-        cout<<"\nCustomer Name :" <<cus_Name<<endl;           
-        cout << "\n  Unit      : " <<units<<endl;
-
-        cout << "\n amount     : " << bill_Bal<<endl;
-        cout << "\nTax amount  : " << bill_Bal*13/100<<endl;
-        cout << "\ntotal amount: " << bill_Bal*113/100<<endl;
-        
-       
-        cout<<"press enter........."<<endl;
+        cout << "            Customer Details         " << endl;
+        cout << "       -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+       \n       " << endl;
+        cout << "Customer id     : " <<cus_Id<<endl;
+        cout << "----------------------------------" << endl;
+        cout << "Customer Name   : " <<cus_Name<<endl;
+        cout << "----------------------------------" << endl;           
+        cout << "Unit            : " <<units<<endl;
+        cout << "----------------------------------" << endl;
+        cout << "Amount          : " << bill_Bal<<endl;
+        cout << "----------------------------------" << endl;
+        cout << "Tax amount      : " << bill_Bal*13/100<<endl;
+        cout << "----------------------------------" << endl;
+        cout << "Total amount    : " << bill_Bal*113/100<<endl;
+        cout<<"\nPress enter to continue........."<<endl;
         cin.ignore();
              cin.get();
     }
@@ -46,6 +52,8 @@ public:
     101 - 200 = 6
     201 - 300 = 7
     above 300 - 8*/
+
+    // Caluclates the  bill 
     void calc_Amt()
     {
         cout << "Enter the number of units consumed: " << endl;
@@ -58,19 +66,23 @@ public:
             bill_Bal=100*1+100*2+(units-200)*7;
         else if(units>300)
             bill_Bal=100*1+100*2+100*3+(units-300)*8;
+            tax=bill_Bal*113/100;
     }
+    // Friend funcion for payment
     friend int payment(Calc_Ebill b);
 };
+
+// Returns the balance
    int payment(Calc_Ebill b)
     {
         char pay1[10];
-        if(b.bal>=b.bill_Bal)
+        if(b.bal>=b.tax)
         {
             cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
             if((strcmp(pay1,"Y")==0)||(strcmp(pay1,"y")==0))
             {
-               b.bal= b.bal-b.bill_Bal; 
+               b.bal= b.bal-b.tax; 
                    time_t now =time(0);
                         char*dt =ctime(&now);
                         cout<<"THIS PAYMENT WAS SUCCESSFULL ON:"<<dt<<endl;
@@ -91,35 +103,36 @@ public:
     }
 
 int main()
-{
-    system("cls");
+{ system("cls");
     Calc_Ebill b;
     int bal1;
-    char pass[10],pass1[10];
-    char userr[15],user1[15];
-             printf("\n Press enter to continue...");
-             cin.get();
+    char pass[100],pass1[100];
+    char userr[100],user1[100];
+    cout<<"-----------------WELCOME TO SMART PAYMENT--------------\n";
+    cout<<"\n Press enter to continue.......";
+    cin.get();
     system("cls");
-
-
     cout<<"-+-+-+-+-  REGISTER  -+-+-+-+-\n"<<endl;
     cout<<"Enter the user name :"<<endl;
-    cin>>userr;
+    gets(userr);
+  
     cout<<"Enter the password:"<<endl;
-    cin>>pass;
-    bal1=b.balance();
+    gets(pass);
+  
     system("cls");
-    cout<<"User Id Created  Successfully...........................  "<<endl;
+    cout<<"User ID Created Successfully.........  "<<endl;
 
     system("cls");
     cout<<"------  LOGIN   -----\n"<<endl;
 
     cout<<"Username:"<<endl;
-    cin>>user1;
+     gets(user1);
     if(strcmp(userr,user1)==0 )
     {
         cout<<"Password :"<<endl;
-        cin>>pass1;
+        gets(pass1);
+          
+        bal1=b.balance();
         system("cls");
         if(strcmp(pass,pass1)==0 )
         {
@@ -181,12 +194,13 @@ int main()
         }
         else
         {
-            cout<<"invalid password 🙁"<<endl;
+            cout<<"invalid password !!!!!!!!!!!"<<endl;
         }
     }
     else
     {
-        cout<<"Invalid username 🙁"<<endl;
+        cout<<"Invalid username !!!!!!!!"<<endl;
+
     }
     return 0;
 }
