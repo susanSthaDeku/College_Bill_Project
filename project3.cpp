@@ -21,7 +21,9 @@ public:
         cout << "Please enter detail of customer below: \n" << endl;
         cout << "Enter customer id: " << endl;
         cin>>cus_Id;
-        cout << "Enter customer Name: " << endl;
+        cout << "Enter customer Name: " << endlasdfsdmfnlkjsda flush kosdjf
+        asdf
+         sdkfl; sdakfl;sdakf;
         cin>>cus_Name;
     }
     void put()
