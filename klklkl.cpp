@@ -3,6 +3,7 @@
 #include<ctime>
 using namespace std;
 // Class to create Commit
+   char pass[100],pass1[100];//globalvariable
 class Calc_Ebill
 {
 int cus_Id;
@@ -73,13 +74,20 @@ public:
 };
 
 // Returns the balance
-   int payment(Calc_Ebill b)
+   int payment(Calc_Ebill b )
     {
         char pay1[10];
+        char pass2[100];
         if(b.bal>=b.tax)
         {
             cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
+            cout<<"password:"<<endl;
+           cin>>pass2;
+            system("cls");
+             if(strcmp(pass,pass2)==0 )
+{
+
             if((strcmp(pay1,"Y")==0)||(strcmp(pay1,"y")==0))
             {
                b.bal= b.bal-b.tax; 
@@ -93,7 +101,7 @@ public:
              cin.get();
                         return b.bal;
             }
-        }
+        
         else
         {
            cout<<"\n***Insufficent Balance***"<<endl;
@@ -104,15 +112,17 @@ public:
            return b.bal;
         }
         
-        
+      }  
        
+    }
     }
 
 int main()
 { system("cls");
     Calc_Ebill b;
     int bal1;
-    char pass[100],pass1[100];
+    
+ 
     char userr[100],user1[100];
     cout<<"-----------------WELCOME TO SMART PAYMENT--------------\n";
     cout<<"\n Press enter to continue.......";
@@ -136,11 +146,12 @@ int main()
         cout<<"Password :"<<endl;
         gets(pass1);
           
-        bal1=b.balance();
-        system("cls");
+       
         if(strcmp(pass,pass1)==0 )
-        {
-            cout<<"***Login sucessfull***"<<endl;
+        
+        { bal1=b.balance();
+            system("cls");
+            cout<<"***Login successfull***"<<endl;
              cin.ignore();
              printf("\n Press enter to continue...");
              cin.get();
@@ -180,6 +191,8 @@ int main()
                             break;
                     case 4:
                     bal1=payment(b);
+                   
+                    
                      system("cls");
 
                             break;
