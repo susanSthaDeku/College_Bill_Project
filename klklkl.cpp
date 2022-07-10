@@ -1,5 +1,6 @@
 #include <iostream>
 #include<string.h>
+#include<conio.h>
 #include<ctime>
 using namespace std;
 // Class to create Commit
@@ -15,7 +16,7 @@ public:
 // Gives user total balance
     int balance()
     {
-        cout<<"Enter the Total balance :"<<endl;
+        cout<<"\nEnter the Total balance :"<<endl;
         cin>>bal;
         return(bal);
     }
@@ -76,14 +77,22 @@ public:
 // Returns the balance
    int payment(Calc_Ebill b )
     {
+        int i;
         char pay1[10];
         char pass2[100];
         if(b.bal>=b.tax)
         {
             cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
+            if(pay1=="y" || pay1=="Y")
+            {
             cout<<"password:"<<endl;
-            cin>>pass2;
+            for (i = 0; i < 10;i++) {
+        pass2[i] = _getch(); _putch('*');
+        if (pass2[i] == 13) break;
+    };
+    // getchar();
+
             system("cls");
              if(strcmp(pass,pass2)==0 )
 {
@@ -112,6 +121,7 @@ public:
            return b.bal;
         }
         
+        
       }   else
         {
            cout<<"\n***Incorrect password***"<<endl;
@@ -120,6 +130,11 @@ public:
         cout<<"\npress enter........."<<endl;
              cin.get();
            return b.bal;
+        }
+            }
+            else
+            {
+            return b.bal;
         }
        
     }
@@ -138,7 +153,14 @@ int main()
     cout<<"Enter the user name :"<<endl;
     gets(userr);
     cout<<"Enter the password:"<<endl;
-    gets(pass);
+    int i;
+    for (i = 0; i < 10;i++) {
+        pass[i] = _getch(); _putch('*');
+        if (pass[i] == 13) break;
+    };
+    // getchar();
+
+    // gets(pass);
     system("cls");
     cout<<"User ID Created Successfully.........  "<<endl;
 
@@ -150,7 +172,12 @@ int main()
     if(strcmp(userr,user1)==0 )
     {
         cout<<"Password :"<<endl;
-        gets(pass1);
+        for (i = 0; i < 10;i++) {
+        pass1[i] = _getch(); _putch('*');
+        if (pass1[i] == 13) break; // 13 means ascii value enter
+    };
+    // getchar();
+
           
        
         if(strcmp(pass,pass1)==0 )
