@@ -83,7 +83,7 @@ public:
             cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
             cout<<"password:"<<endl;
-           cin>>pass2;
+            cin>>pass2;
             system("cls");
              if(strcmp(pass,pass2)==0 )
 {
@@ -112,7 +112,15 @@ public:
            return b.bal;
         }
         
-      }  
+      }   else
+        {
+           cout<<"\n***Incorrect password***"<<endl;
+           
+        cin.ignore();
+        cout<<"\npress enter........."<<endl;
+             cin.get();
+           return b.bal;
+        }
        
     }
     }
@@ -121,8 +129,6 @@ int main()
 { system("cls");
     Calc_Ebill b;
     int bal1;
-    
- 
     char userr[100],user1[100];
     cout<<"-----------------WELCOME TO SMART PAYMENT--------------\n";
     cout<<"\n Press enter to continue.......";
