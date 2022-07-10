@@ -6,7 +6,7 @@ using namespace std;
 class Calc_Ebill
 {
 int cus_Id;
-char cus_Name[50];
+char cus_Name[100];
 int units;
 double bill_Bal;
  int bal,tax;
@@ -23,10 +23,12 @@ public:
     void get()
     {
         cout << "Please enter detail of customer below: \n" << endl;
+       
         cout << "Enter customer id: " << endl;
         cin>>cus_Id;
-        cout << "Enter customer Name: " << endl;
-        cin>>cus_Name;
+         cout << "Enter customer Name: " << endl;
+        gets(cus_Name);
+       
     }
 // Displays customer bill amount
      void put()
@@ -88,17 +90,25 @@ public:
                         cout<<"THIS PAYMENT WAS SUCCESSFULL ON:"<<dt<<endl;
                         cout<<"Remaining balance :"<<b.bal  ;
                         return b.bal;
+                           cin.ignore();
+        cout<<"\npress enter........."<<endl;
+     
+             cin.get();
+             system("cls");
             }
         }
         else
         {
            cout<<"\n***Insufficent Balance***"<<endl;
            return b.bal;
-        }
-        
-        cout<<"\npress enter........."<<endl;
-        cin.ignore();
+           cin.ignore();
+           cout<<"\npress enter........."<<endl;
+     
              cin.get();
+             system("cls");
+        }
+           
+        
        
     }
 
@@ -176,7 +186,7 @@ int main()
                             break;
                     case 4:
                     bal1=payment(b);
-                     system("cls");
+                     
 
                             break;
                     case 5: break;	  	  
