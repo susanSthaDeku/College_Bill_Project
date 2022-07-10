@@ -4,6 +4,7 @@
 #include<ctime>
 using namespace std;
 // Class to create Commit
+  int bal1;
    char pass[100],pass1[100];//globalvariable
 class Calc_Ebill
 {
@@ -75,75 +76,72 @@ public:
 };
 
 // Returns the balance
-   int payment(Calc_Ebill b )
+ int payment(Calc_Ebill b )
     {
         int i;
         char pay1[10];
         char pass2[100];
-        if(b.bal>=b.tax)
+        if(bal1>=b.tax)
         {
             cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
-            if(pay1=="y" || pay1=="Y")
-            {
-            cout<<"password:"<<endl;
-            for (i = 0; i < 10;i++) {
-        pass2[i] = _getch(); _putch('*');
-        if (pass2[i] == 13) break;
-    };
-    // getchar();
-
-            system("cls");
-             if(strcmp(pass,pass2)==0 )
-{
-
             if((strcmp(pay1,"Y")==0)||(strcmp(pay1,"y")==0))
             {
-               b.bal= b.bal-b.tax; 
+            cout<<"password:"<<endl;
+            for (i = 0; i < 10;i++)
+			 {
+        pass2[i] = _getch(); _putch('*');
+        if (pass2[i] == 13) break;
+         };
+            system("cls");
+             if(strcmp(pass,pass2)==0 )
+                      {
+                 bal1= bal1-b.tax; 
                    time_t now =time(0);
                         char*dt =ctime(&now);
                         cout<<"THIS PAYMENT WAS SUCCESSFULL ON:"<<dt<<endl;
-                        cout<<"Remaining balance :"<<b.bal  ;
+                        cout<<"Remaining balance :"<<bal1  ;
                         
-        cin.ignore();
-        cout<<"\npress enter........."<<endl;
-             cin.get();
-                        return b.bal;
+                    cin.ignore();
+                    cout<<"\npress enter........."<<endl;
+                    cin.get();
+                        return bal1;
             }
         
         else
-        {
-           cout<<"\n***Insufficent Balance***"<<endl;
+        {cout<<"\n***Incorrect password***"<<endl;
+         
            
         cin.ignore();
         cout<<"\npress enter........."<<endl;
              cin.get();
-           return b.bal;
+           return bal1;
         }
         
-        
-      }   else
+    }
+         else
         {
-           cout<<"\n***Incorrect password***"<<endl;
            
         cin.ignore();
         cout<<"\npress enter........."<<endl;
              cin.get();
-           return b.bal;
+           return bal1;
         }
             }
+        
             else
             {
-            return b.bal;
+             cout<<"\n***Insufficent Balance***"<<endl;
         }
        
-    }
-    }
+    
+    
+}
 
 int main()
 { system("cls");
     Calc_Ebill b;
-    int bal1;
+  
     char userr[100],user1[100];
     cout<<"-----------------WELCOME TO SMART PAYMENT--------------\n";
     cout<<"\n Press enter to continue.......";
@@ -222,8 +220,7 @@ int main()
                      system("cls");
 
                             break;
-                    case 4:
-                    bal1=payment(b);
+                    case 4:payment(b);
                    
                     
                      system("cls");
