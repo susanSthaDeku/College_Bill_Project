@@ -1,8 +1,6 @@
 /* 2nd sem day 
 
-AUTHOUR: Susan Shrestha(201345)
-        :Saujanya shrestha(201326)
-        :Sushil Baral(201334)*/
+AUTHOUR: Susan Shrestha(201345)*/
 
 #include <iostream>
 #include<string.h>//string
