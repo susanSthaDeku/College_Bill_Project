@@ -186,10 +186,7 @@ int main()
         pass1[i] = _getch(); _putch('*');
         if (pass1[i] == 13) break; // 13 means ascii value enter
     };
-    // getchar();
 
-          
-       
         if(strcmp(pass,pass1)==0 )
         
         { bal1=b.balance();
@@ -258,12 +255,23 @@ int main()
         else
         {
             cout<<"invalid password !!!!!!!!!!!"<<endl;
+         
+          
+             printf("\n Press enter to go in register...");
+             cin.get();
+               system("cls");
+               goto print;
         }
     }
     else
     {
         cout<<"Invalid username !!!!!!!!"<<endl;
-
+    
+             printf("\n Press enter to go in register...");
+             cin.get();
+               system("cls");
+               goto print;
+  
     }
     return 0;
 }
