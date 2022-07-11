@@ -82,12 +82,13 @@ public:
         int i,a;
         char pay1[10],pay2[10];;
         char pass2[100];
-        if(bal1>=b.tax)
-        {
-            cout<<"Would you like to do payment(Y/N):";
+        cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
             if((strcmp(pay1,"Y")==0)||(strcmp(pay1,"y")==0))
             {
+        if(bal1>=b.tax)
+        {
+            
             cout<<"password:"<<endl;
             for (i = 0; i < 10;i++)
 			 {
@@ -120,17 +121,7 @@ public:
         }
         
     }
-         else
-        {
-           
-        cin.ignore();
-        cout<<"\npress enter........."<<endl;
-             cin.get();
-           return bal1;
-        }
-            }
-        
-            else
+      else
             {
              cout<<"\n***Insufficent Balance***"<<endl;
             cout<<"wanna add money(y/n):"<<endl;
@@ -142,10 +133,16 @@ public:
              bal1=bal1+a;
              return bal1;
             }
-
+            }
+            }
+         else
+        {
+           
+        cin.ignore();
+        cout<<"\npress enter........."<<endl;
+             cin.get();
+           return bal1;
         }
-       
-    
     
 }
 
@@ -199,7 +196,6 @@ int main()
             int choice=1;
             while(choice!=5)
             {
-            
                 printf("\n ********************************  ");
                 printf("\n      Electricity Bill Calculator");
                 printf("\n ******************************** \n ");
