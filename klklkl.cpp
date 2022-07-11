@@ -1,7 +1,8 @@
 #include <iostream>
-#include<string.h>
-#include<conio.h>
-#include<ctime>
+#include<string.h>//string
+#include<conio.h>//getch
+#include<ctime>//time
+#include <windows.h>  //color
 using namespace std;
 // Class to create Commit
   int bal1;
@@ -151,7 +152,7 @@ public:
 int main()
 { system("cls");
     Calc_Ebill b;
-  
+   system("Color 9"); ///light blue color
     char userr[100],user1[100];
     print:
     cout<<"-----------------WELCOME TO SMART PAYMENT--------------\n";
@@ -235,15 +236,13 @@ int main()
                             break;
                     case 4:payment(b);
                    
-                    
                      system("cls");
 
-                            break;
+                         break;
                             
-                    
                     case 5:  goto print;
-                            break;
-                   case 6: break;
+                        break;
+                   case 6: exit(0);
                     default:{
                         printf("\n\n  Invalid Choice...!");
                         printf("\n\n Please Try Again ...");
