@@ -10,7 +10,7 @@ AUTHOUR: Susan Shrestha(201345)*/
 using namespace std;
 
   int bal1,tax;;
-   char pass[100],pass1[100];//globalvariable
+   char pass[100],pass1[100],date[100];//globalvariable
 class Calc_Ebill// create class
 {
 int cus_Id;
@@ -85,7 +85,7 @@ public:
  int payment(Calc_Ebill b )
     { 
         int i,a;
-        char pay1[10],pay2[10];;
+        char pay1[10],pay2[10];
         char pass2[100];
         cout<<"Would you like to do payment(Y/N):";
             cin>>pay1;
@@ -110,7 +110,7 @@ public:
                         char*dt =ctime(&now);
                         cout<<"THIS PAYMENT WAS SUCCESSFULL ON:"<<dt<<endl;
                         cout<<"Remaining balance :"<<bal1  ;
-                        
+                        strcpy(date,dt);
                     cin.ignore();
                     cout<<"\npress enter........."<<endl;
                     cin.get();
@@ -147,7 +147,7 @@ public:
                    else
         {
         cin.ignore();
-        cout<<"\nalready paid \nress enter........."<<endl;
+        cout<<"\nalready paid on "<<date<<"\nress enter........."<<endl;
              cin.get();
            return bal1;
         }
