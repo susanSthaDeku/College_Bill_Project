@@ -77,9 +77,9 @@ public:
 
 // Returns the balance
  int payment(Calc_Ebill b )
-    {
-        int i;
-        char pay1[10];
+    { 
+        int i,a;
+        char pay1[10],pay2[10];;
         char pass2[100];
         if(bal1>=b.tax)
         {
@@ -132,6 +132,16 @@ public:
             else
             {
              cout<<"\n***Insufficent Balance***"<<endl;
+            cout<<"wanna add money(y/n):"<<endl;
+             cin>>pay2;
+            if((strcmp(pay2,"Y")==0)||(strcmp(pay2,"y")==0))
+            {
+            cout<<"add money:"<<endl;
+             cin>>a;
+             bal1=bal1+a;
+             return bal1;
+            }
+
         }
        
     
@@ -143,6 +153,7 @@ int main()
     Calc_Ebill b;
   
     char userr[100],user1[100];
+    print:
     cout<<"-----------------WELCOME TO SMART PAYMENT--------------\n";
     cout<<"\n Press enter to continue.......";
     cin.get();
@@ -202,7 +213,9 @@ int main()
                 printf("\n  2. Generate Bill  ");
                 printf("\n  3. Display bill  ");
                 printf("\n  4. Payment  ");
-                printf("\n  5. EXIT ");
+                printf("\n  5.logout ");
+                printf("\n  6. EXIT ");
+                
                 printf("\n Enter your choice :    ");
                 scanf("%d",&choice);
                 system("cls");
@@ -226,7 +239,11 @@ int main()
                      system("cls");
 
                             break;
-                    case 5: break;	  	  
+                            
+                    
+                    case 5:  goto print;
+                            break;
+                   case 6: break;
                     default:{
                         printf("\n\n  Invalid Choice...!");
                         printf("\n\n Please Try Again ...");
