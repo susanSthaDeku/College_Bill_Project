@@ -1,19 +1,25 @@
+/* 2nd sem day 
+
+AUTHOUR: Susan Shrestha(201345)
+        :Saujanya shrestha(201326)
+        :Sushil Baral(201334)*/
+
 #include <iostream>
 #include<string.h>//string
 #include<conio.h>//getch
 #include<ctime>//time
 #include <windows.h>  //color
 using namespace std;
-// Class to create Commit
-  int bal1;
+
+  int bal1,tax;;
    char pass[100],pass1[100];//globalvariable
-class Calc_Ebill
+class Calc_Ebill// create class
 {
 int cus_Id;
 char cus_Name[50];
 int units;
 double bill_Bal;
- int bal,tax;
+ int bal;
 public:
 // Gives user total balance
     int balance()
@@ -71,6 +77,7 @@ public:
         else if(units>300)
             bill_Bal=100*1+100*2+100*3+(units-300)*8;
             tax=bill_Bal*113/100;
+       
     }
     // Friend funcion for payment
     friend int payment(Calc_Ebill b);
@@ -86,7 +93,9 @@ public:
             cin>>pay1;
             if((strcmp(pay1,"Y")==0)||(strcmp(pay1,"y")==0))
             {
-        if(bal1>=b.tax)
+                if(tax!=0)
+                {
+        if(bal1>=tax)
         {
             
             cout<<"password:"<<endl;
@@ -98,7 +107,7 @@ public:
             system("cls");
              if(strcmp(pass,pass2)==0 )
                       {
-                 bal1= bal1-b.tax; 
+                 bal1= bal1-tax; 
                    time_t now =time(0);
                         char*dt =ctime(&now);
                         cout<<"THIS PAYMENT WAS SUCCESSFULL ON:"<<dt<<endl;
@@ -107,7 +116,9 @@ public:
                     cin.ignore();
                     cout<<"\npress enter........."<<endl;
                     cin.get();
+                    tax=0;
                         return bal1;
+
             }
         
         else
@@ -134,7 +145,17 @@ public:
              return bal1;
             }
             }
+                }
+                   else
+        {
+        cin.ignore();
+        cout<<"\nalready paid \nress enter........."<<endl;
+             cin.get();
+           return bal1;
+        }
             }
+                
+                     
          else
         {
            
@@ -143,8 +164,9 @@ public:
              cin.get();
            return bal1;
         }
+        }
     
-}
+
 
 int main()
 { system("cls");
